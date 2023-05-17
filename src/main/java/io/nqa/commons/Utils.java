@@ -1,6 +1,7 @@
 package io.nqa.commons;
 
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Utils {
@@ -48,8 +49,8 @@ public class Utils {
     /**
      * Check if two strings match.
      *
-     * @param str1
-     * @param str2
+     * @param str1 String 1
+     * @param str2 String 2
      * @return True if strings match
      */
     public static boolean equals(String str1, String str2) {
@@ -87,5 +88,26 @@ public class Utils {
         return Pattern.compile(emailRegex)
                 .matcher(email)
                 .matches();
+    }
+
+    /**
+     * Replace multiple elements in string without using RegEx,
+     * meaning it's possible to use "$username" or "[USERNAME]"
+     * as placeholders in a string.
+     * <p>
+     * Example:
+     * str = "Hello, [USERNAME] and welcome to $myApp!"
+     * map = {"[USERNAME]"="Jimmy", "$myApp"="OnlyCats"}
+     * expected result: "Hello, Jimmy and welcome to OnlyCats!"
+     *
+     * @param str Original string to change
+     * @param map Map of placeholders and new values
+     * @return Modified string
+     */
+    public static String replacePlaceholdersInString(String str, Map<String, String> map) {
+        for (String key : map.keySet()) {
+            str = str.replace(key, map.get(key));
+        }
+        return str;
     }
 }
