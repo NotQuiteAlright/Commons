@@ -36,5 +36,6 @@ public class CustomResponse {
             this.success = true;
             this.message = "success";
         }
+        this.object = object;
     }
 }
