@@ -1,3 +1,3 @@
 #!/bin/sh
-chmod +x mvnw
+chmod +x ./mvnw
 ./mvnw clean install
