@@ -22,7 +22,7 @@ public class Utils {
      * @param objects List of objects
      * @return True if any object is null
      */
-    private static boolean isNull(Object ... objects) {
+    public static boolean isNull(Object ... objects) {
         init();
         for (Object obj : objects) {
             if (obj == null)
