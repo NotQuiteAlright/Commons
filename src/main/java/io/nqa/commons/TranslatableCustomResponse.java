@@ -11,38 +11,38 @@ import lombok.Data;
 public class TranslatableCustomResponse {
     private boolean success;
     private Object object;
-    private ResponseType responseType;
-    private ResponseMessages message;
+    private Enum<? extends Enum> responseType;
+    private Enum<? extends Enum> message;
 
-    public TranslatableCustomResponse(boolean success, ResponseType responseType, ResponseMessages message) {
+    public TranslatableCustomResponse(boolean success, Enum<? extends Enum> responseType, Enum<? extends Enum> message) {
         this.success = success;
         this.object = null;
         this.responseType = responseType;
         this.message = message;
     }
 
-    public TranslatableCustomResponse(boolean success, ResponseType responseType) {
+    public TranslatableCustomResponse(boolean success, Enum<? extends Enum> responseType) {
         this.success = success;
         this.object = null;
         this.responseType = responseType;
         this.message = ResponseMessages.EMPTY;
     }
 
-    public TranslatableCustomResponse(Object object, ResponseType responseType, ResponseMessages message) {
+    public TranslatableCustomResponse(Object object, Enum<? extends Enum> responseType, Enum<? extends Enum> message) {
         this.success = object != null;
         this.object = object;
         this.responseType = responseType;
         this.message = message;
     }
 
-    public TranslatableCustomResponse(Object object, ResponseType responseType) {
+    public TranslatableCustomResponse(Object object, Enum<? extends Enum> responseType) {
         this.success = object != null;
         this.object = object;
         this.responseType = responseType;
         this.message = ResponseMessages.EMPTY;
     }
 
-    public TranslatableCustomResponse(boolean success, Object object, ResponseType responseType) {
+    public TranslatableCustomResponse(boolean success, Object object, Enum<? extends Enum> responseType) {
         this.success = success;
         this.object = object;
         this.responseType = responseType;

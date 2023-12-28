@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class TranslatableResponse {
-    private ResponseType responseType;
-    private ResponseMessages message;
+    private Enum<? extends Enum> responseType;
+    private Enum<? extends Enum> message;
 }
