@@ -24,9 +24,14 @@ public class Utils {
      */
     public static boolean isNull(Object ... objects) {
         init();
-        for (Object obj : objects) {
-            if (obj == null)
-                return true;
+        if (objects == null) return true;
+        try {
+            for (Object obj : objects) {
+                if (obj == null)
+                    return true;
+            }
+        } catch (NullPointerException ignored) {
+            return true;
         }
         return false;
     }
@@ -39,6 +44,7 @@ public class Utils {
      */
     public static boolean isBlank(String ... args) {
         init();
+        if (args == null) return true;
         for (String arg : args) {
             if (arg == null || arg.trim().isBlank())
                 return true;
@@ -66,6 +72,7 @@ public class Utils {
      */
     public static boolean isEmpty(List ... lists) {
         init();
+        if (lists == null) return true;
         for (List list : lists) {
             if (list == null || list.isEmpty())
                 return true;
