@@ -5,6 +5,7 @@ package io.nqa.commons;
  */
 public enum ResponseType {
     INFO,
+    SUCCESS,
     WARNING,
     ERROR
 }
