@@ -65,6 +65,21 @@ public class Utils {
     }
 
     /**
+     * Check if any following String matches first String.
+     *
+     * @param str
+     * @param args
+     * @return
+     */
+    public static boolean anyStringEquals(String str, String ... args) {
+        init();
+        for (String arg : args) {
+            if (str.trim().equals(arg.trim())) return true;
+        }
+        return false;
+    }
+
+    /**
      * Check if any of multiple lists is null or empty
      *
      * @param lists List of lists
