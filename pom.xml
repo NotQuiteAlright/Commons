@@ -6,19 +6,35 @@
 
     <groupId>io.nqa</groupId>
     <artifactId>commons</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>jar</packaging>
 
-    <name>NQA Commons</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>Collection of classes used in multiple projects developed by NQA</description>
     <url>https://nqa.io</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
             <name>Kristjan Männimets</name>
             <email>kristjan@nqa.io</email>
+            <organization>Not Quite Alright</organization>
+            <organizationUrl>https://nqa.io</organizationUrl>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:ssh://github.com:NotQuiteAlright/Commons.git</connection>
+        <developerConnection>scm:git:ssh://github.com:NotQuiteAlright/Commons.git</developerConnection>
+        <url>https://github.com/NotQuiteAlright/Commons/tree/main</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -30,8 +46,43 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
+            <version>1.18.34</version>
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
