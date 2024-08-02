@@ -4,16 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+/**
+ * Small collection of utility functions for quality of life improvement.
+ */
 public class Utils {
-    private static volatile Utils utils;
-
-    private Utils() {}
-
-    @SuppressWarnings("InstantiationOfUtilityClass")
-    private static void init() {
-        if (utils == null)
-            utils = new Utils();
-    }
 
     /**
      * Check if any of multiple objects are null.
@@ -23,7 +17,6 @@ public class Utils {
      * @return True if any object is null
      */
     public static boolean isNull(Object ... objects) {
-        init();
         if (objects == null) return true;
         try {
             for (Object obj : objects) {
@@ -43,7 +36,6 @@ public class Utils {
      * @return True if any string is null or blank
      */
     public static boolean isBlank(String ... args) {
-        init();
         if (args == null) return true;
         for (String arg : args) {
             if (arg == null || arg.trim().isBlank())
@@ -60,19 +52,17 @@ public class Utils {
      * @return True if strings match
      */
     public static boolean equals(String str1, String str2) {
-        init();
         return (!isNull(str1, str2) && str1.trim().equals(str2.trim()));
     }
 
     /**
      * Check if any following String matches first String.
      *
-     * @param str
-     * @param args
-     * @return
+     * @param str String to compare against
+     * @param args Strings to compare with
+     * @return true if any strings match first string
      */
     public static boolean anyStringEquals(String str, String ... args) {
-        init();
         for (String arg : args) {
             if (str.trim().equals(arg.trim())) return true;
         }
@@ -86,7 +76,6 @@ public class Utils {
      * @return True if any list is null or empty
      */
     public static boolean isEmpty(List ... lists) {
-        init();
         if (lists == null) return true;
         for (List list : lists) {
             if (list == null || list.isEmpty())
@@ -102,7 +91,6 @@ public class Utils {
      * @return True if input matches email regex
      */
     public static boolean isStringEmail(String email) {
-        init();
         if (isBlank(email))
             return false;
         String emailRegex = "^(?=.{1,64}@)[\\p{L}0-9_-]+(\\.[\\p{L}0-9_-]+)*@"
