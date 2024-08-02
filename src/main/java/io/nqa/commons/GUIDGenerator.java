@@ -1,5 +1,11 @@
 package io.nqa.commons;
 
+/**
+ * Generated Unique Identifier generator
+ *
+ * @deprecated use {@link io.nqa.commons.GUID} instead. To be removed in 1.6
+ */
+@Deprecated(since = "1.5", forRemoval = true)
 public class GUIDGenerator {
     private static volatile GUIDGenerator guidGenerator;
     private static final int DEFAULT_LENGTH = 16;
