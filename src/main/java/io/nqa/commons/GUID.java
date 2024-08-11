@@ -58,7 +58,7 @@ public class GUID {
      * @return true if ID length and regex pattern match
      */
     public static boolean verify(int length, String guid) {
-        if (guid.length() != length) return false;
+        if (Utils.isBlank(guid) || guid.length() != length) return false;
         return Pattern.compile(regex).matcher(guid).matches();
     }
 }

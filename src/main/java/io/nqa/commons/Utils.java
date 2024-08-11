@@ -10,10 +10,10 @@ import java.util.regex.Pattern;
 public class Utils {
 
     /**
-     * Check if any of multiple objects are null.
+     * Check if any of multiple objects are null.<p>
      * If you have only one object use 'obj == null' instead.
      *
-     * @param objects List of objects
+     * @param objects List of objects to test
      * @return True if any object is null
      */
     public static boolean isNull(Object ... objects) {
@@ -30,9 +30,20 @@ public class Utils {
     }
 
     /**
+     * Opposite of {@link io.nqa.commons.Utils#isNull(Object...)}
+     *
+     * @param objects List of objects to test
+     * @return True if none of provided objects is null
+     * @since 1.5.1
+     */
+    public static boolean notNull(Object ... objects) {
+        return !isNull(objects);
+    }
+
+    /**
      * Check if any of multiple strings is null or blank.
      *
-     * @param args List of strings
+     * @param args List of strings to test
      * @return True if any string is null or blank
      */
     public static boolean isBlank(String ... args) {
@@ -45,14 +56,39 @@ public class Utils {
     }
 
     /**
-     * Check if two strings match.
+     * Opposite of {@link io.nqa.commons.Utils#isBlank(String...)}
+     *
+     * @param args List of strings to test
+     * @return True if none of the strings is null or blank
+     * @since 1.5.1
+     */
+    public static boolean notBlank(String ... args) {
+        return !isBlank(args);
+    }
+
+    /**
+     * Check if two strings match.<p>
+     * This may look like {@link String#equals(Object)}, but
+     * it also checks for null and trims provided Strings
      *
      * @param str1 String 1
      * @param str2 String 2
      * @return True if strings match
      */
     public static boolean equals(String str1, String str2) {
-        return (!isNull(str1, str2) && str1.trim().equals(str2.trim()));
+        return (notNull(str1, str2) && str1.trim().equals(str2.trim()));
+    }
+
+    /**
+     * Opposite of {@link io.nqa.commons.Utils#equals(String, String)}
+     *
+     * @param str1 String 1
+     * @param str2 String 2
+     * @return True if strings don't match
+     * @since 1.5.1
+     */
+    public static boolean notEquals(String str1, String str2) {
+        return !equals(str1, str2);
     }
 
     /**
@@ -60,13 +96,25 @@ public class Utils {
      *
      * @param str String to compare against
      * @param args Strings to compare with
-     * @return true if any strings match first string
+     * @return True if any strings match first string
      */
     public static boolean anyStringEquals(String str, String ... args) {
         for (String arg : args) {
             if (str.trim().equals(arg.trim())) return true;
         }
         return false;
+    }
+
+    /**
+     * Opposite of {@link io.nqa.commons.Utils#anyStringEquals(String, String...)}
+     *
+     * @param str String to compare against
+     * @param args Strings to compare with
+     * @return True if none of the strings match first string
+     * @since 1.5.1
+     */
+    public static boolean noStringEquals(String str, String ... args) {
+        return !anyStringEquals(str, args);
     }
 
     /**
@@ -82,6 +130,17 @@ public class Utils {
                 return true;
         }
         return false;
+    }
+
+    /**
+     * Opposite of {@link io.nqa.commons.Utils#isEmpty(List[])}
+     *
+     * @param lists List of lists
+     * @return True if none of the Lists is null or empty
+     * @since 1.5.1
+     */
+    public static boolean notEmpty(List ... lists) {
+        return !isEmpty(lists);
     }
 
     /**

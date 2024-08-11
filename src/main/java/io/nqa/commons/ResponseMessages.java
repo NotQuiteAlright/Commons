@@ -1,9 +1,8 @@
 package io.nqa.commons;
 
 /**
- * <b>IMPORTANT!</b>
- * <br />
- * This is a placeholder, create your own Enumeration and use that!
+ * <b>IMPORTANT!</b><p>
+ * This is a placeholder, create your own {@link Enum} and use that!
  */
 public enum ResponseMessages {
     EMPTY
