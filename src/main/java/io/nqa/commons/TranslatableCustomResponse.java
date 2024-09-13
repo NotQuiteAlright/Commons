@@ -48,4 +48,19 @@ public class TranslatableCustomResponse {
         this.responseType = responseType;
         this.message = ResponseMessages.EMPTY;
     }
+
+    public TranslatableCustomResponse(Object object) {
+        this.success = object != null;
+        this.object = object;
+        if (object == null) this.responseType = ResponseType.ERROR;
+        else this.responseType = ResponseType.SUCCESS;
+        this.message = ResponseMessages.EMPTY;
+    }
+
+    public TranslatableCustomResponse(Enum<? extends Enum> responseType) {
+        this.success = responseType != ResponseType.ERROR;
+        this.object = null;
+        this.responseType = responseType;
+        this.message = ResponseMessages.EMPTY;
+    }
 }
