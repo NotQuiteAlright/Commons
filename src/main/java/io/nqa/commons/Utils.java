@@ -41,6 +41,22 @@ public class Utils {
     }
 
     /**
+     * Check if any of the given objects is not null.
+     *
+     * @param objects List of objects to test
+     * @return True if any of given objects is not null
+     * @since 1.6.2
+     */
+    public static boolean anyNotNull(Object ... objects) {
+        if (objects == null) return false;
+        for (Object obj : objects) {
+            if (obj != null)
+                return true;
+        }
+        return false;
+    }
+
+    /**
      * Check if any of multiple strings is null or blank.
      *
      * @param args List of strings to test
