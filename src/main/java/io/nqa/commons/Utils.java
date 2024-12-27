@@ -195,4 +195,18 @@ public class Utils {
         }
         return str;
     }
+
+    /**
+     * Check if text contains every string provided.
+     *
+     * @param text Main text to check
+     * @param str List of strings that must be in text
+     * @return true if text contains all strings
+     */
+    public static boolean textContainsAll(String text, String ... str) {
+        for (String s : str)
+            if (!text.contains(s))
+                return false;
+        return true;
+    }
 }
