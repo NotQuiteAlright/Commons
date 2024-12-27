@@ -209,4 +209,25 @@ public class Utils {
                 return false;
         return true;
     }
+
+    /**
+     * Convert integer to boolean.
+     *
+     * @param i integer to convert
+     * @return true if i == 1
+     */
+    public static boolean intToBoolean(int i) {
+        return i == 1;
+    }
+
+    /**
+     * Convert boolean to integer.
+     *
+     * @param b boolean to convert
+     * @return 1 if boolean = true
+     */
+    public static int booleanToInt(boolean b) {
+        if (b) return 1;
+        return 0;
+    }
 }
